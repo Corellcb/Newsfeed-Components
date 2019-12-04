@@ -112,3 +112,36 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function creatArticle(data){
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const para1 = document.createElement('p');
+  const para2 = document.createElement('p');
+  const para3 = document.createElement('p');
+  const span = document.createElement('span');
+
+  article.classList.add('article');
+  date.classList.add('date');
+  span.classList.add('expandButton');
+
+  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(para1);
+  article.appendChild(para2);
+  article.appendChild(para3);
+  article.appendChild(span);
+
+  title.textContent = data.title;
+  date.textContent = data.date;
+  para1.textContent = data.firstParagraph;
+  para2.textContent = data.secondParagraph;
+  para3.textContent = data.thirdParagraph;
+
+  return article;
+}
+const articleSection = document.querySelector('.articles');
+data.forEach(el =>
+  {
+    articleSection.appendChild(creatArticle(el));
+  })
